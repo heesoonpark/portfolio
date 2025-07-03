@@ -1,0 +1,696 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>“문제에서 기회를, 아이디어를 서비스로” </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="224fb346-03cf-8045-a835-cce039b86466" class="page sans"><header><img class="page-cover-image" src="Innovation-tech-lightbulbs-1-scaled.jpg" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Gemini_Generated_Image_2d54gh2d54gh2d54.png"/></div><h1 class="page-title">“문제에서 기회를, 아이디어를 서비스로” </h1><p class="page-description"></p></header><div class="page-body"><p id="224fb346-03cf-8163-99e5-fd391d055ba3" class="">
+</p><div id="224fb346-03cf-815e-b3cd-e18e7408761a" class="column-list"><div id="224fb346-03cf-8107-b2aa-c2f541393fb9" style="width:62.5%" class="column"><blockquote id="224fb346-03cf-81d9-9b6a-f6b0f5ee8953" class="block-color-default">문제에서 기회를 발견하고, 아이디어를 서비스로 구현하여 고객과 서비스의 가치를 연결합니다.</blockquote></div><div id="224fb346-03cf-810c-8405-fc15cb8a6ee3" style="width:37.5%" class="column"><ul id="224fb346-03cf-81cf-bdc5-d5ee6c6a38be" class="bulleted-list"><li style="list-style-type:disc"><strong>이름 :</strong> 스티븐빌제프일론</li></ul><ul id="224fb346-03cf-8145-b333-c4c3142f966c" class="bulleted-list"><li style="list-style-type:disc"><strong>연락처 :</strong> 010-1004-1004</li></ul><ul id="224fb346-03cf-81a8-8c03-cde034c8a3f3" class="bulleted-list"><li style="list-style-type:disc"><strong>이메일 :</strong> google@gmail.com</li></ul></div></div><p id="224fb346-03cf-8115-b47c-faf31e4cbcbe" class="">
+</p><hr id="224fb346-03cf-81ec-ad1b-f86aaf211125"/><div id="224fb346-03cf-81f0-9567-fdf1a4cfac3e" class="column-list"><div id="224fb346-03cf-8163-a359-c9c59f51a250" style="width:25%" class="column"><h3 id="224fb346-03cf-814b-930a-c0841973fa9b" class="block-color-gray"><em>Professional<br/>Experience<br/></em></h3><p id="224fb346-03cf-81b3-85f0-f926af9b8cbf" class=""><mark class="highlight-gray">경력 사항</mark></p><p id="224fb346-03cf-8149-b27f-d788ee2117af" class="">
+</p></div><div id="224fb346-03cf-81bd-a4c9-f0c40a9f7778" style="width:75%" class="column"><p id="224fb346-03cf-81f7-8ba3-d2dc5fea3706" class=""><mark class="highlight-red">총 경력 00년 00개월</mark></p><p id="224fb346-03cf-81dc-b0c8-daba0560cec3" class=""><mark class="highlight-default"><strong>구글   </strong></mark><mark class="highlight-default">|   PO</mark><strong> </strong><mark class="highlight-gray">(2022 ~ 현재)</mark></p><ul id="224fb346-03cf-8182-9402-e8a6fff27cfe" class="block-color-gray bulleted-list"><li style="list-style-type:disc">AI Studio Project PO</li></ul><ul id="225fb346-03cf-80cb-b73a-f32618db2c37" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">Flutter Project PO</mark></li></ul><hr id="224fb346-03cf-8189-a17d-e55b7625d343"/><p id="224fb346-03cf-81fb-8eaf-eecfbd323c4b" class=""><mark class="highlight-default"><strong>애플   </strong></mark><mark class="highlight-default">|   PO</mark> <mark class="highlight-gray">(2019 ~ 2022)</mark></p><ul id="224fb346-03cf-81eb-84f3-ce50a89e0fc8" class="block-color-gray bulleted-list"><li style="list-style-type:disc">AI Project PO</li></ul><ul id="225fb346-03cf-8080-9fcf-c9c4f7080c8b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">Game Play Platform PO</mark></li></ul><hr id="224fb346-03cf-813a-930d-cc6381d11f5c"/><p id="224fb346-03cf-8175-9e63-d07b594a0c20" class=""><mark class="highlight-default"><strong>아마존   </strong></mark><mark class="highlight-default">|   PM</mark> <mark class="highlight-gray">(2015 ~ 2019)</mark></p><ul id="224fb346-03cf-81cc-8dfa-f969403dce64" class="block-color-gray bulleted-list"><li style="list-style-type:disc">Fulfillment AI Project PM</li></ul><ul id="225fb346-03cf-80d8-ae63-f7f0ead27eb2" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">AWS AI Project PM</mark></li></ul></div></div><p id="224fb346-03cf-812b-b386-dcc40ffa3be3" class="">
+</p><hr id="224fb346-03cf-8118-844a-d9019337939a"/><div id="224fb346-03cf-81f7-8a15-d3a93e8f13f0" class="column-list"><div id="224fb346-03cf-81c2-b07b-ecfeaa594057" style="width:25%" class="column"><h3 id="224fb346-03cf-8176-a810-f845c3736a0f" class="block-color-gray"><em>Representative<br/>Projects<br/></em></h3><p id="224fb346-03cf-817e-b7e7-e316f413a7d3" class=""><mark class="highlight-gray">대표 프로젝트</mark></p><p id="224fb346-03cf-81c2-b35e-cfdcb3c9d39a" class="">
+</p></div><div id="224fb346-03cf-8157-8f23-dbc6f6b79386" style="width:75%" class="column"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="224fb346-03cf-8194-8a94-f46e047e7a9e"><div style="width:100%"><p id="224fb346-03cf-815c-bad0-e93564a48b76" class=""><strong>AI Studio Project</strong> <mark class="highlight-gray">(2022.04 ~ 2023.03)</mark></p><ul id="224fb346-03cf-817b-96e7-e318613cb26a" class="block-color-gray bulleted-list"><li style="list-style-type:disc">프로덕트 총괄</li></ul><ul id="224fb346-03cf-8123-acab-e0b43d7722f5" class="block-color-gray bulleted-list"><li style="list-style-type:disc">리뉴얼 후 트래픽 30% 증가, 리텐션 10% 상승</li></ul></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="224fb346-03cf-8140-9908-d808474debe2"><div style="width:100%"><p id="224fb346-03cf-8179-97f9-dd6e6ef64224" class=""><strong>Flutter Project</strong> <mark class="highlight-gray">(2022.08 ~ 2022.12)</mark></p><ul id="224fb346-03cf-810e-b805-ca6264dc542a" class="block-color-gray bulleted-list"><li style="list-style-type:disc">사용자 트래픽 20% 증가</li></ul><ul id="224fb346-03cf-81ff-9c49-f08158a7393e" class="block-color-gray bulleted-list"><li style="list-style-type:disc">점유율 150% 상승</li></ul></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="224fb346-03cf-8191-8868-f19f84125cfc"><div style="width:100%"><p id="224fb346-03cf-81bb-8dfc-e2ea676c3d05" class=""><strong>Game Play Platform </strong><mark class="highlight-gray">(2021.11 ~ 2022.03)</mark></p><ul id="224fb346-03cf-8102-84f6-d39f2c39a380" class="block-color-gray bulleted-list"><li style="list-style-type:disc">애플 전체 매출의 5% 차지 </li></ul><ul id="224fb346-03cf-815f-9c87-df9bad76d4bf" class="block-color-gray bulleted-list"><li style="list-style-type:disc">Game Play Platform에서 유입된 애플 TV 누적 신규 가입자 100만명 달성</li></ul></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="224fb346-03cf-81cb-95bd-ed717c3c673a"><div style="width:100%"><p id="224fb346-03cf-81d9-873f-d3962e44d7e0" class=""><strong>Fulfillment AI Project</strong> <mark class="highlight-gray">(2020.08 ~ 2020.12)</mark></p><ul id="224fb346-03cf-81f0-9b29-d8d1964b14a5" class="block-color-gray bulleted-list"><li style="list-style-type:disc">개별 포장 시간 기존 평균 1분에서 40초로 단축</li></ul><ul id="224fb346-03cf-81cb-9d50-ec3cad8f719c" class="block-color-gray bulleted-list"><li style="list-style-type:disc">포장~상차 시간 기존 평균 10분에서 8분으로 단축</li></ul></div></figure><p id="224fb346-03cf-81fe-b683-c4a89bbdd289" class="">
+</p><p id="224fb346-03cf-81d6-9a80-eac8ccc6cd63" class=""><mark class="highlight-gray">↓ 각 카드를 선택하면 프로젝트의 상세내용을 확인할 수 있습니다 ↓ </mark></p><div id="224fb346-03cf-81e5-9f53-c1f349bf1237" class="collection-content"><h4 class="collection-title">최근 수행 프로젝트 DB</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(71, 70, 68, 0.6);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>이름</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/trophy_gray.svg" style="width:14px;height:14px;display:block"/></span>Awards</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/groups_gray.svg" style="width:14px;height:14px;display:block"/></span>Client</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/briefcase_gray.svg" style="width:14px;height:14px;display:block"/></span>Created</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/cursor_gray.svg" style="width:14px;height:14px;display:block"/></span>Type</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(71, 70, 68, 0.6);flex-shrink:0" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>URL</th></tr></thead><tbody><tr id="224fb346-03cf-811d-98b7-d2e181e71e11"><td class="cell-title"><a href="https://www.notion.so/AI-Studio-Project-224fb34603cf811d98b7d2e181e71e11?pvs=21">AI Studio Project</a></td><td class="cell-FHtS"><strong>2024 Good 디자인 어워드 수상🎖️</strong></td><td class="cell-jJCe">Fresh</td><td class="cell-NK_n"><time>@2023/01/01 → 2023/03/31</time></td><td class="cell-zx\J"><span class="selected-value select-value-color-default">Pakage</span></td><td class="cell-\_&lt;O"><a href="project.url" class="url-value">project.url</a></td></tr><tr id="224fb346-03cf-81a0-9ab9-d3c785875d04"><td class="cell-title"><a href="https://www.notion.so/Flutter-Project-224fb34603cf81a09ab9d3c785875d04?pvs=21"><img class="icon" src="https://www.notion.so/icons/folder_gray.svg"/>Flutter Project</a></td><td class="cell-FHtS"><strong>2023 Super Design 어워드 수상🎖️</strong></td><td class="cell-jJCe">Innovation Hub</td><td class="cell-NK_n"><time>@2022/04/01 → 2023/03/15</time></td><td class="cell-zx\J"><span class="selected-value select-value-color-brown">Branding</span></td><td class="cell-\_&lt;O"><a href="project.url" class="url-value">project.url</a></td></tr><tr id="224fb346-03cf-812b-89cf-d2f39a99b0e4"><td class="cell-title"><a href="https://www.notion.so/Game-Play-Platform-224fb34603cf812b89cfd2f39a99b0e4?pvs=21"><img class="icon" src="https://www.notion.so/icons/folder_gray.svg"/>Game Play Platform</a></td><td class="cell-FHtS"><strong>2022 대한민국 디자인 대상🎖️</strong></td><td class="cell-jJCe">Ecco korea</td><td class="cell-NK_n"><time>@2021/11/15 → 2022/03/10</time></td><td class="cell-zx\J"><span class="selected-value select-value-color-brown">Branding</span></td><td class="cell-\_&lt;O"><a href="project.url" class="url-value">project.url</a></td></tr><tr id="224fb346-03cf-812a-9f23-e2c9c438bd13"><td class="cell-title"><a href="https://www.notion.so/Fulfillment-AI-Project-224fb34603cf812a9f23e2c9c438bd13?pvs=21"><img class="icon" src="https://www.notion.so/icons/folder_gray.svg"/>Fulfillment AI Project</a></td><td class="cell-FHtS"></td><td class="cell-jJCe">Newworld korea</td><td class="cell-NK_n"><time>@2020/08/10 → 2020/12/31</time></td><td class="cell-zx\J"><span class="selected-value select-value-color-orange">UI</span><span class="selected-value select-value-color-purple">Website</span></td><td class="cell-\_&lt;O"><a href="project.ui" class="url-value">project.ui</a></td></tr></tbody></table><br/><br/></div></div></div><p id="224fb346-03cf-81b3-aacb-ceaacae3cf4b" class="">
+</p><hr id="224fb346-03cf-8125-a144-c09816f658c3"/><div id="224fb346-03cf-81e0-a711-c8f1115883a1" class="column-list"><div id="224fb346-03cf-811c-bfe9-ffa1281312d3" style="width:25%" class="column"><h3 id="224fb346-03cf-81ec-b5e9-db42cafc1777" class="block-color-gray">Skills</h3></div><div id="224fb346-03cf-8130-a04f-f51727f8127a" style="width:75%" class="column"><div id="224fb346-03cf-8182-906f-eec267533b95" class="collection-content"><h4 class="collection-title">Skiis DB</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(71, 70, 68, 0.6);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Skiils</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/pentagon-dashed_gray.svg" style="width:14px;height:14px;display:block"/></span>Details</th></tr></thead><tbody><tr id="224fb346-03cf-8157-a02c-f6aa9420c285"><td class="cell-title"><a href="https://www.notion.so/Adobe-Photoshop-224fb34603cf8157a02cf6aa9420c285?pvs=21"><img class="icon" src="Ps.png"/>Adobe Photoshop</a></td><td class="cell-vBbl">사진 편집, 이미지 리터칭,<br/>디지털 아트워크 제작, 목업 디자인<br/></td></tr><tr id="224fb346-03cf-81e0-8ffd-e24cc3649465"><td class="cell-title"><a href="https://www.notion.so/Adobe-Illustrator-224fb34603cf81e08ffde24cc3649465?pvs=21"><img class="icon" src="Ai.png"/>Adobe Illustrator</a></td><td class="cell-vBbl">로고 디자인, 벡터 그래픽 제작,<br/>아이콘 디자인, 브랜드 요소 제작<br/></td></tr><tr id="224fb346-03cf-81a3-8678-cfd3dcbaf343"><td class="cell-title"><a href="https://www.notion.so/Adobe-Indesign-224fb34603cf81a38678cfd3dcbaf343?pvs=21"><img class="icon" src="Id.png"/>Adobe Indesign</a></td><td class="cell-vBbl">편집 디자인, 브로슈어 제작,<br/>카탈로그 디자인<br/></td></tr><tr id="224fb346-03cf-8189-aff7-d7889bfdc7ff"><td class="cell-title"><a href="https://www.notion.so/Figma-224fb34603cf8189aff7d7889bfdc7ff?pvs=21"><img class="icon" src="Figma.png"/>Figma</a></td><td class="cell-vBbl">UI/UX 디자인, 프로토타입 제작,<br/>웹사이트 디자인, 협업 프로젝트 관리<br/></td></tr><tr id="224fb346-03cf-8185-8d37-e4cce9e54bae"><td class="cell-title"><a href="https://www.notion.so/Canva-224fb34603cf81858d37e4cce9e54bae?pvs=21"><img class="icon" src="Canva.png"/>Canva</a></td><td class="cell-vBbl">소셜 미디어 디자인, 프레젠테이션 제작,<br/>마케팅 자료 디자인<br/></td></tr><tr id="224fb346-03cf-8138-8781-d51460e735a0"><td class="cell-title"><a href="https://www.notion.so/Midjourney-224fb34603cf81388781d51460e735a0?pvs=21"><img class="icon" src="Midjourney.png"/>Midjourney</a></td><td class="cell-vBbl">컨셉 아트 개발, 브랜드 비주얼 아이데이션, <br/>창의적 디자인 영감 도출<br/></td></tr><tr id="224fb346-03cf-818c-90e5-d12207ed5cfe"><td class="cell-title"><a href="https://www.notion.so/Claude-224fb34603cf818c90e5d12207ed5cfe?pvs=21"><img class="icon" src="Claude.png"/>Claude</a></td><td class="cell-vBbl">AI를 활용한 아이디어 발상, 콘텐츠 제작, 크리에이티브 작업 보조</td></tr><tr id="224fb346-03cf-816e-8723-fdfeae27b98c"><td class="cell-title"><a href="https://www.notion.so/Notion-224fb34603cf816e8723fdfeae27b98c?pvs=21"><img class="icon" src="Notion.png"/>Notion</a></td><td class="cell-vBbl">프로젝트 관리, 문서화,<br/>협업 워크스페이스 구축<br/></td></tr><tr id="224fb346-03cf-8143-8b46-ed01b543028d"><td class="cell-title"><a href="https://www.notion.so/PowerPoint-224fb34603cf81438b46ed01b543028d?pvs=21"><img class="icon" src="Powerpoint.png"/>PowerPoint</a></td><td class="cell-vBbl">프레젠테이션 디자인, 비즈니스 문서 작성, 시각적 커뮤니케이션</td></tr><tr id="224fb346-03cf-81f4-9c15-dcfb1f9d7ffc"><td class="cell-title"><a href="https://www.notion.so/Excel-224fb34603cf81f49c15dcfb1f9d7ffc?pvs=21"><img class="icon" src="Excel.png"/>Excel</a></td><td class="cell-vBbl">데이터 필터링 및 정렬, 데이터 분석 및 시각화, 매크로(VBA) 기초 활용</td></tr></tbody></table><br/><br/></div></div></div><hr id="224fb346-03cf-8185-a668-da82f4f4cbc1"/><div id="224fb346-03cf-819d-a3c9-e8f111a4f5b4" class="column-list"><div id="224fb346-03cf-8121-a077-ead4835b3bca" style="width:25%" class="column"><h3 id="224fb346-03cf-81cb-b1f7-dd04ff1b8427" class=""><em><mark class="highlight-gray">Education</mark></em></h3><p id="224fb346-03cf-8195-ab5c-dcd1d345644a" class=""><mark class="highlight-gray">학력 사항</mark></p><p id="224fb346-03cf-81f7-8e5b-fe92c698ff98" class="">
+</p></div><div id="224fb346-03cf-8129-933a-e40ae54fe53c" style="width:75%" class="column"><p id="224fb346-03cf-81bb-93bb-f497ceea9810" class=""><strong>스탠퍼드 대학 컴퓨터 과학</strong> <mark class="highlight-gray">(2009 ~ 2013)</mark></p><ul id="224fb346-03cf-81d7-af57-e98e9167e0e6" class="block-color-gray bulleted-list"><li style="list-style-type:disc">학점: 4.4/4.5</li></ul><ul id="224fb346-03cf-8128-99f7-f6267d9282a6" class="block-color-gray bulleted-list"><li style="list-style-type:disc">조기 졸업</li></ul><hr id="224fb346-03cf-816d-b20c-f483c550453f"/><p id="224fb346-03cf-814a-aebb-c8090f0eda61" class=""><strong>교육</strong></p><ul id="224fb346-03cf-81c2-a48e-f41af30155db" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">PO 마스터 클래스 수료 (2015)</mark></li></ul><ul id="224fb346-03cf-81ca-96cd-feecbb117e52" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray">AI 마스터 클래스 수료 (2012)</mark></li></ul></div></div><hr id="224fb346-03cf-81dd-a857-f778344eb27a"/><div id="224fb346-03cf-8117-81cb-dbe7b14b0ce2" class="column-list"><div id="224fb346-03cf-81bf-a111-ef4894c4af40" style="width:31.25%" class="column"><h3 id="224fb346-03cf-8108-b20b-c2a4bf37f427" class="block-color-gray"><em>Certifications</em></h3><p id="224fb346-03cf-8136-99d6-c120331c9850" class=""><mark class="highlight-gray">자격 사항</mark></p></div><div id="224fb346-03cf-81c1-a897-c370a3457145" style="width:106.25%" class="column"><p id="224fb346-03cf-8157-8574-dcdf77edb9a0" class=""><strong><a href="https://www.google.com/search?sca_esv=538cd22458912cc3&amp;cs=1&amp;q=CCIE&amp;sa=X&amp;ved=2ahUKEwjYwMnm8J-OAxU7oK8BHfX4EAgQxccNegQIExAB&amp;mstk=AUtExfDxYxnnFOMQvdN_fuDS7S6cD6GZlYpG9czZO-Cqcbw5YKf7rVxi0f4v_tB3rO39jU7I9GlRSm_99HCRaMmoMwjB-ML6NtZ3yoNiqzc2qcYxnoDvZYpMT260l_LaiE0oN0fSojYWTICUJslx4wdwaw3moh_rd0LkdLNF5UAODV7QqLNiuNOubFjoDcs6s2w3tylz&amp;csui=3">CCIE</a></strong><strong> (Cisco Certified Internetwork Expert)</strong><mark class="highlight-default">   |   CISCO </mark><mark class="highlight-gray">(2023)</mark></p><p id="224fb346-03cf-81fb-a9e5-debbaca2e431" class=""><strong><a href="https://www.google.com/search?sca_esv=538cd22458912cc3&amp;cs=1&amp;q=OCM&amp;sa=X&amp;ved=2ahUKEwjYwMnm8J-OAxU7oK8BHfX4EAgQxccNegQILxAB&amp;mstk=AUtExfDxYxnnFOMQvdN_fuDS7S6cD6GZlYpG9czZO-Cqcbw5YKf7rVxi0f4v_tB3rO39jU7I9GlRSm_99HCRaMmoMwjB-ML6NtZ3yoNiqzc2qcYxnoDvZYpMT260l_LaiE0oN0fSojYWTICUJslx4wdwaw3moh_rd0LkdLNF5UAODV7QqLNiuNOubFjoDcs6s2w3tylz&amp;csui=3">OCM</a></strong><strong> (Oracle Certified Master)</strong><mark class="highlight-default">   |   ORACLE</mark><mark class="highlight-gray"> (2015)</mark></p><p id="225fb346-03cf-8015-a084-f6c1033a7864" class=""><strong><a href="https://www.google.com/search?sca_esv=538cd22458912cc3&amp;cs=1&amp;q=MCSE&amp;sa=X&amp;ved=2ahUKEwjYwMnm8J-OAxU7oK8BHfX4EAgQxccNegQILRAB&amp;mstk=AUtExfDxYxnnFOMQvdN_fuDS7S6cD6GZlYpG9czZO-Cqcbw5YKf7rVxi0f4v_tB3rO39jU7I9GlRSm_99HCRaMmoMwjB-ML6NtZ3yoNiqzc2qcYxnoDvZYpMT260l_LaiE0oN0fSojYWTICUJslx4wdwaw3moh_rd0LkdLNF5UAODV7QqLNiuNOubFjoDcs6s2w3tylz&amp;csui=3">MCSE</a></strong><strong> (Microsoft Certified System Engineer)</strong><mark class="highlight-default">   |   MS</mark><mark class="highlight-gray"> (2015)</mark></p><p id="225fb346-03cf-80c2-bdc1-daf9c239565f" class=""><strong><a href="https://www.google.com/search?sca_esv=538cd22458912cc3&amp;cs=1&amp;q=CISSP&amp;sa=X&amp;ved=2ahUKEwjYwMnm8J-OAxU7oK8BHfX4EAgQxccNegQIDRAB&amp;mstk=AUtExfDxYxnnFOMQvdN_fuDS7S6cD6GZlYpG9czZO-Cqcbw5YKf7rVxi0f4v_tB3rO39jU7I9GlRSm_99HCRaMmoMwjB-ML6NtZ3yoNiqzc2qcYxnoDvZYpMT260l_LaiE0oN0fSojYWTICUJslx4wdwaw3moh_rd0LkdLNF5UAODV7QqLNiuNOubFjoDcs6s2w3tylz&amp;csui=3">CISSP</a></strong><strong> (Certified Information Systems Security Professional)</strong><mark class="highlight-default">   |   CISCO </mark><mark class="highlight-gray">(2023)</mark></p></div></div><hr id="224fb346-03cf-819d-a4c9-fa7016d093ea"/><p id="224fb346-03cf-816a-b486-e85916f0d827" class="">
+</p><p id="224fb346-03cf-819e-a530-f61adccd05e9" class="">
+</p><p id="224fb346-03cf-817d-a777-ceca4a15d4ab" class="">
+</p><p id="224fb346-03cf-810f-8dbf-cc1da670365e" class=""><a href="https://www.notion.so/224fb34603cf8045a835cce039b86466?pvs=21">▲ 맨 위로 ▲</a></p><p id="224fb346-03cf-81a7-bccf-d76db4c6a30f" class="">
+</p><p id="224fb346-03cf-811e-b5ed-c87f54207e58" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
